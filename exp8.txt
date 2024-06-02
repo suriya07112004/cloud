@@ -1,0 +1,50 @@
+wget https://repo1.maven.org/maven2/junit/junit/4.13.2/junit-4.13.2.jar
+wget https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+
+
+_____________________________________________________________________
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class BankAppTest{
+    
+    @Test
+    public void testdept()
+    {
+        BankApp b = new BankApp();
+        assertEquals("Deposit amount mismatch",b.deposit(2000),2000);
+    }
+    
+    @Test
+    public void testwithdraw()
+    {
+        BankApp b = new BankApp();
+        assertEquals("Withdraw amount mismatch",b.balance(3000),3000);
+        
+    }
+}
+
+_____________________________________________________________________________________
+
+
+
+public class BankApp
+{
+    public int deposit(int a)
+    {
+        return a;
+    }
+    public int balance(int a)
+    {
+        return a;
+    }
+}
+
+
+
+
+
+__________________________________________________________
+javac -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar src/BankApp.java test/BankAppTest.java
+
+java -cp .:src:test:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore BankAppTest
