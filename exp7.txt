@@ -2,12 +2,11 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.7/docker
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-docker-compose.yml
 
 nano docker-compose.yml
 
 
-
+----------------------------------------------
 
 
 
@@ -42,6 +41,10 @@ networks:
   frontend:
   backend:
 
+volumes:
+  db-data:
+
+---------------------------------------------
 
 
 
@@ -51,5 +54,4 @@ docker-compose up -d
 
 docker ps
 
-volumes:
-  db-data:
+
