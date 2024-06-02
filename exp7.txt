@@ -1,0 +1,55 @@
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.7/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose.yml
+
+nano docker-compose.yml
+
+
+
+
+
+
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+
+  cache:
+    image: redis:latest
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:
+
+
+
+
+
+
+docker-compose up -d
+
+docker ps
+
+volumes:
+  db-data:
