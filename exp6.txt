@@ -1,0 +1,14 @@
+
+yum install docker
+
+docker --version
+
+docker pull nginx
+
+docker images
+
+docker volume create my_volume
+
+docker run -d --name my_nginx -v my_volume:/usr/share/nginx/html -p 80:80 nginx
+
+docker inpect my_nginx
